@@ -102,9 +102,9 @@ class FormUser extends Component {
   handleSelectChange(e, data) {
     this.setState({ is_oos: data.value });
     // Might not need the bottom stuff
-    this.setState({ open_assign: data.value });
-    this.setState({ truck_type: data.value });
-    this.setState({ permit_type: data.value });
+    // this.setState({ open_assign: data.value });
+    // this.setState({ truck_type: data.value });
+    // this.setState({ permit_type: data.value });
 
   }
 
@@ -188,7 +188,7 @@ class FormUser extends Component {
     return (
       <Form className={formClassName} onSubmit={this.handleSubmit}>
         
-        <Form.Group widths ='equal'>
+        {/* <Form.Group widths ='equal'> */}
           <Form.Input
           label='Truck Number'
           type='text'
@@ -225,8 +225,8 @@ class FormUser extends Component {
           value={this.state.open_assign}
           onChange={this.handleSelectChange}
           />
-        </Form.Group>
-        <Form.Group widths ='equal'>
+        {/* </Form.Group> */}
+        {/* <Form.Group widths ='equal'> */}
           {/* Truck Type is visible when changing the options but it itself is unchangeable -- want */}
           {/* Truck Type -- Visible while adding trucks, but will not be visible while editing trucks */}
           <Form.Field
@@ -267,7 +267,7 @@ class FormUser extends Component {
           required value={this.state.user_initial}
           onChange={this.handleInputChange}
           />
-        </Form.Group>
+        {/* </Form.Group> */}
 
         {/* <Form.Input
           label='Name'

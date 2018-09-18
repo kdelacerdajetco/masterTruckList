@@ -3,5 +3,34 @@
 
 module.exports = {
  db: process.env.DB
-//  db: 'mongodb://localhost/mern-crud'
+//  db: 'mongodb://localhost/masterTruckList'
 };
+
+
+// {
+//     "development": {
+//         "username":"root",
+//         "password":"Jetco123!?",
+//         "database": "employee_db",
+//         "host": "localhost",
+//         "dialect": "mysql",
+//         "migrationStorage": "json"
+//     },
+//     "test": {
+//         "username":"root",
+//         "password":"Jetco123!?",
+//         "database": "employee_db",
+//         "host": "localhost",
+//         "dialect": "mysql",
+//         "migrationStorage":"json"
+
+//     },
+//     "production": {
+//         "username":"root",
+//         "password":"Jetco123!?",
+//         "database": "employee_db",
+//         "host":"localhost",
+//         "dialect": "mysql",
+//         "migrationStorage":"json"
+//     }
+// }

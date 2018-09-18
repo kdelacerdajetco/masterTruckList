@@ -60,14 +60,14 @@ class App extends Component {
     let users = this.state.users.slice();
     for (let i = 0, n = users.length; i < n; i++) {
       if (users[i]._id === user._id) {
-        users[i].name = user.truck_num;
-        users[i].name = user.is_oos;
-        users[i].name = user.repair_type;
-        users[i].name = user.open_assign;
-        users[i].name = user.truck_type;
-        users[i].name = user.driver_code;
-        users[i].name = user.permit_type;
-        users[i].name = user.user_initial;
+        users[i].truck_num = user.truck_num;
+        users[i].is_oos = user.is_oos;
+        users[i].repair_type = user.repair_type;
+        users[i].open_assign = user.open_assign;
+        users[i].truck_type = user.truck_type;
+        users[i].driver_code = user.driver_code;
+        users[i].permit_type = user.permit_type;
+        users[i].user_initial = user.user_initial;
 
         // users[i].email = user.email;
         // users[i].age = user.age;

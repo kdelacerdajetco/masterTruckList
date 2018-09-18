@@ -59,6 +59,7 @@ class TableUser extends Component {
             <Table.HeaderCell>Driver Code</Table.HeaderCell>
             <Table.HeaderCell>Permit Type</Table.HeaderCell>
             <Table.HeaderCell>User Initial</Table.HeaderCell>
+            <Table.HeaderCell>Actions</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
