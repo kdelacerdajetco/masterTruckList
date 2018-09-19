@@ -64,10 +64,6 @@ let online = 0;
 
 io.on('connection', (socket) => {
   online++;
-  console.log(`Socket ${socket.id} connected.`);
-  console.log(`Online: ${online}`);
-  io.emit('visitor enters', online);
-
   socket.on('add', data => socket.broadcast.emit('add', data));
   socket.on('update', data => socket.broadcast.emit('update', data));
   socket.on('delete', data => socket.broadcast.emit('delete', data));

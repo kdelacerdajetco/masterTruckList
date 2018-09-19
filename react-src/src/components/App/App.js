@@ -7,7 +7,7 @@ import TableUser from '../TableUser/TableUser';
 import ModalUser from '../ModalUser/ModalUser';
 
 import logo from '../../siteLogo.png';
-import shirts from '../../shirts.png';
+// import shirts from '../../shirts.png';
 import './App.css';
 
 class App extends Component {
@@ -67,7 +67,6 @@ class App extends Component {
         users[i].truck_type = user.truck_type;
         users[i].driver_code = user.driver_code;
         users[i].permit_type = user.permit_type;
-        users[i].user_initial = user.user_initial;
 
         // users[i].email = user.email;
         // users[i].age = user.age;

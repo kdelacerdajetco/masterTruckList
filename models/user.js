@@ -63,22 +63,6 @@ const driver_code_validator = [
   })
 ];
 
-// const driver_first_validator = [
-//   validate({
-//     validator: 'isLength',
-//     arguments: [0,20],
-//     message: 'Driver first name should not exceed {ARGS[1]} characters.'
-//   })
-// ];
-
-// const driver_last_validator = [
-//   validate({
-//     validator: 'isLength',
-//     arguments: [0,20],
-//     message: 'Driver last name should not exceed {ARGS[1]} characters.'
-//   })
-// ];
-
 const permit_type_validator = [
   validate({
     validator: 'isLength',
@@ -130,16 +114,9 @@ const UserSchema = new mongoose.Schema({
     required: [true, 'Driver Code is required'],
     validate: driver_code_validator
   },
-  // driver_first: {
-  //   type: String,
-  //   validate: driver_first_validator
-  // },
-  // driver_last: {
-  //   type: String,
-  //   validate: driver_last_validator
   permit_type: {
     type: String,
-    required: [false],
+    // required: [false],
     validate: permit_type_validator
   },
   user_initial: {

@@ -57,7 +57,6 @@ class FormUser extends Component {
       truck_type: '',
       driver_code: '',
       permit_type: '',
-      user_initial: '',
       formClassName: '',
       formSuccessMessage: '',
       formErrorMessage: ''
@@ -82,7 +81,6 @@ class FormUser extends Component {
           truck_type: response.data.truck_type,
           driver_code: response.data.driver_code,
           permit_type: response.data.permit_type,
-          user_initial: response.data.user_initial
         });
       })
       .catch((err) => {
@@ -121,7 +119,6 @@ class FormUser extends Component {
       truck_type: this.state.truck_type,
       driver_code: this.state.driver_code,
       permit_type: this.state.permit_type,
-      user_initial: this.state.user_initial
     }
 
     // Acknowledge that if the user id is provided, we're updating via PUT
@@ -149,8 +146,7 @@ class FormUser extends Component {
           open_assign: '',
           truck_type: '',
           driver_code: '',
-          permit_type: '',
-          user_initial: ''
+          permit_type: ''
         });
         this.props.onUserAdded(response.data.result);
         this.props.socket.emit('add', response.data.result);
@@ -258,15 +254,7 @@ class FormUser extends Component {
           />
           {/* log in using passport
           take information from passport to key into this field (most likely on FormUser.js) */}
-          <Form.Input
-          label='User Initial'
-          type='text'
-          placeholder = 'KND'
-          name='user_initial'
-          maxLength='3'
-          required value={this.state.user_initial}
-          onChange={this.handleInputChange}
-          />
+          
         {/* </Form.Group> */}
 
         {/* <Form.Input

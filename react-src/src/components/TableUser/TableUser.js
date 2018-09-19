@@ -19,7 +19,6 @@ class TableUser extends Component {
         <Table.Cell>{user.truck_type}</Table.Cell>
         <Table.Cell>{user.driver_code}</Table.Cell>
         <Table.Cell>{user.permit_type}</Table.Cell>
-        <Table.Cell>{user.user_initial}</Table.Cell>
         <Table.Cell>
           <ModalUser
             headerTitle='Edit User'
@@ -58,7 +57,6 @@ class TableUser extends Component {
             <Table.HeaderCell>Truck Type</Table.HeaderCell>
             <Table.HeaderCell>Driver Code</Table.HeaderCell>
             <Table.HeaderCell>Permit Type</Table.HeaderCell>
-            <Table.HeaderCell>User Initial</Table.HeaderCell>
             <Table.HeaderCell>Actions</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
