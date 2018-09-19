@@ -58,7 +58,7 @@ const truck_type_validator = [
 const driver_code_validator = [
   validate({
     validator: 'isLength',
-    arguments: [0,8],
+    arguments: [0,6],
     message: 'Driver Code should not exceed {ARGS[1]} characters.'
   })
 ];
@@ -71,13 +71,6 @@ const permit_type_validator = [
   })
 ];
 
-const user_initial_validator = [
-  validate({
-    validator: 'isLength',
-    arguments: [0,3],
-    message: 'User Initals should not exceed {ARGS[1]} characters.'
-  })
-]
 
 // Define the database model
 const UserSchema = new mongoose.Schema({
@@ -91,13 +84,13 @@ const UserSchema = new mongoose.Schema({
   // was email. now is_oos
   is_oos: {
     type: String,
-    required: [true, 'IS_OOS is required.'],
-    unique: true,
+    // required: [true, 'IS_OOS is required.'],
+    // unique: true,
     validate: is_oos_validator
   },
   repair_type: {
     type: String,
-    required: [false],
+    // required: [false],
     validate: repair_type_validator
 
   },
@@ -111,18 +104,13 @@ const UserSchema = new mongoose.Schema({
   },
   driver_code :{
     type: String,
-    required: [true, 'Driver Code is required'],
+    // required: [true, 'Driver Code is required'],
     validate: driver_code_validator
   },
   permit_type: {
     type: String,
     // required: [false],
     validate: permit_type_validator
-  },
-  user_initial: {
-    type: String,
-    required: [true, 'User Initals are required.'],
-    validate: user_initial_validator
   }
 
 });

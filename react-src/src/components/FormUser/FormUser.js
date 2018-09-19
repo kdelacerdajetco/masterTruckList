@@ -12,10 +12,10 @@ import axios from 'axios';
 // drop-down options below ** 
 
 const truckTypeOptions = [
-  {key: 'HH', text: 'Heavy Haul', value: 'HH'},
-  {key: 'LTL', text: 'Less Than Truckload', value: 'LTL'},
-  {key: 'OD', text: 'Open Deck', value: 'OD'},
-  {key: 'IM', text: 'Intermodal', value: 'IM'},
+  {key: 'HH', text: 'HH', value: 'HH'},
+  {key: 'LTL', text: 'LTL', value: 'LTL'},
+  {key: 'OD', text: 'OD', value: 'OD'},
+  {key: 'IM', text: 'IM', value: 'IM'},
   {key: 'Van OTR', text: 'Van OTR', value: 'Van OTR'},
   {key: 'Van LOC', text: 'Van LOC', value: 'Van LOC'}
 ];
@@ -98,12 +98,16 @@ class FormUser extends Component {
   }
 
   handleSelectChange(e, data) {
-    this.setState({ is_oos: data.value });
-    // Might not need the bottom stuff
+    // this.setState({ is_oos: data.value });
     // this.setState({ open_assign: data.value });
     // this.setState({ truck_type: data.value });
-    // this.setState({ permit_type: data.value });
-
+    this.setState({ permit_type: data.value });
+    // this.setState = {
+    //   is_oos: data.value,
+    //   open_assign: data.value,
+    //   truck_type: data.value,
+    //   permit_type: data.value
+    // }
   }
 
 
@@ -118,7 +122,7 @@ class FormUser extends Component {
       open_assign: this.state.open_assign,
       truck_type: this.state.truck_type,
       driver_code: this.state.driver_code,
-      permit_type: this.state.permit_type,
+      permit_type: this.state.permit_type
     }
 
     // Acknowledge that if the user id is provided, we're updating via PUT
@@ -187,7 +191,7 @@ class FormUser extends Component {
         {/* <Form.Group widths ='equal'> */}
           <Form.Input
           label='Truck Number'
-          type='text'
+          type='number'
           placeholder='123'
           name='truck_num'
           maxLength='5'
@@ -209,7 +213,8 @@ class FormUser extends Component {
           placeholder='Repair Type Optional'
           name='repair_type'
           maxLength='50'
-          required value={this.state.repair_type}
+          // required value={this.state.repair_type}
+          value={this.state.repair_type}
           onChange={this.handleInputChange}
           />
           <Form.Field
@@ -237,10 +242,11 @@ class FormUser extends Component {
           <Form.Input
           label='Driver Code'
           type='text'
-          placeholder = '(DRICOD)'
+          placeholder = 'DRICOD'
           name='driver_code'
-          maxLength='8'
-          required value={this.state.driver_code}
+          maxLength='6'
+          // required value={this.state.driver_code}
+          value={this.state.driver_code}
           onChange={this.handleInputChange}
           />
           <Form.Field

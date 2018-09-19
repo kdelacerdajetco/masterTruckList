@@ -52,10 +52,9 @@ router.post('/', postLimiter, (req, res) => {
     is_oos: sanitizeIs_oos(req.body.is_oos),
     repair_type: sanitizeRepair_type(req.body.repair_type),
     open_assign: sanitizeOpen_assign(req.body.open_assign),
-    truck_type: sanitizeTruck_type(req.body.truck),
-    driver_code: sanitizeDriver_code(req.body.driver),
-    permit_type: sanitizePermit_type(req.body.permit),
-    user_initial: sanitizeUser_initial(req.body.user_initial)
+    truck_type: sanitizeTruck_type(req.body.truck_type),
+    driver_code: sanitizeDriver_code(req.body.driver_code),
+    permit_type: sanitizePermit_type(req.body.permit_type),
   });
 
   newUser.save()
@@ -67,30 +66,42 @@ router.post('/', postLimiter, (req, res) => {
           _id: result._id,
           truck_num: result.truck_num,
           is_oos: result.is_oos,
+          repair_type: result.repair_type,
           open_assign: result.open_assign,
           truck_type: result.truck_type,
           driver_code: result.driver_code,
           permit_type: result.permit_type,
-          user_initial: result.user_initial
         }
       });
     })
     .catch((err) => {
       if (err.errors) {
-        if (err.errors.name) {
-          res.status(400).json({ success: false, msg: err.errors.name.message });
+        if (err.errors.truck_num) {
+          res.status(400).json({ success: false, msg: err.errors.truck_num.message });
           return;
         }
-        if (err.errors.email) {
-          res.status(400).json({ success: false, msg: err.errors.email.message });
+        if (err.errors.is_oos) {
+          res.status(400).json({ success: false, msg: err.errors.is_oos.message });
           return;
         }
-        if (err.errors.age) {
-          res.status(400).json({ success: false, msg: err.errors.age.message });
+        if (err.errors.repair_type) {
+          res.status(400).json({ success: false, msg: err.errors.repair_type.message });
           return;
         }
-        if (err.errors.gender) {
-          res.status(400).json({ success: false, msg: err.errors.gender.message });
+        if (err.errors.open_assign) {
+          res.status(400).json({ success: false, msg: err.errors.open_assign.message });
+          return;
+        }
+        if (err.errors.truck_type) {
+          res.status(400).json({ success: false, msg: err.errors.truck_type.message });
+          return;
+        }
+        if (err.errors.driver_code) {
+          res.status(400).json({ success: false, msg: err.errors.driver_code.message });
+          return;
+        }
+        if (err.errors.permit_type) {
+          res.status(400).json({ success: false, msg: err.errors.permit_type.message });
           return;
         }
         // Show failed if all else fails for some reasons
@@ -115,7 +126,6 @@ router.put('/:id', (req, res) => {
     truck_type: sanitizeTruck_type(req.body.truck_type),
     driver_code: sanitizeDriver_code(req.body.driver_code),
     permit_type: sanitizePermit_type(req.body.permit_type),
-    user_initial: sanitizeUser_initial(req.body.user_initial),
   };
 
   User.findOneAndUpdate({ _id: req.params.id }, updatedUser, { runValidators: true, context: 'query' })
@@ -134,7 +144,6 @@ router.put('/:id', (req, res) => {
               truck_type: newResult.truck_type,
               driver_code: newResult.driver_code,
               permit_type: newResult.permit_type,
-              user_initial: newResult.user_initial
             }
           });
         })
@@ -173,10 +182,6 @@ router.put('/:id', (req, res) => {
           res.status(400).json({ success: false, msg: err.errors.permit_type.message });
           return;
         }
-        if (err.errors.user_initial) {
-          res.status(400).json({ success: false, msg: err.errors.user_initial.message });
-          return;
-        }
         // Show failed if all else fails for some reasons
         res.status(500).json({ success: false, msg: `Something went wrong. ${err}` });
       }
@@ -199,8 +204,7 @@ router.delete('/:id', (req, res) => {
           open_assign: result.open_assign,
           truck_type: result.truck_type,
           driver_code: result.driver_code,
-          permit_type: result.permit_type,
-          user_initial: result.user_initial
+          permit_type: result.permit_type
         }
       });
     })
@@ -215,7 +219,7 @@ module.exports = router;
 sanitizeTruck_num = (truck_num) => {
   // Return empty if truck_num is non-numeric
   if (isNaN(truck_num) && truck_num != '') return '';
-  return (truck_num === '') ? age : parseInt(truck_num);
+  return (truck_num === '') ? truck_num : parseInt(truck_num);
 }
 
 sanitizeIs_oos = (is_oos) => {
@@ -239,7 +243,10 @@ sanitizeTruck_type = (truck_type) => {
 
 sanitizeDriver_code = (driver_code) => {
   // Experimenting with adding the parenthesis before and after the DRICOD. Also making them all upper case letters. 
-  return ( "(" & driver_code.toUpperCase() & ")" );
+  // return ( "(" & driver_code.toUpperCase() & ")" );
+
+  // Seeing if removing the '()' from the field makes the field work. 
+  return ( driver_code.toUpperCase() );
 }
 
 sanitizePermit_type = (permit_type) => {
@@ -247,10 +254,6 @@ sanitizePermit_type = (permit_type) => {
   return (permit_type === 'Annual' || permit_type === '26 W Ramps' || permit_type === '32 Ramps' || permit_type === 'Overweight' || permit_type === '30 Day Width' || permit_type === '90 Day Width' || permit_type === 'Other' || permit_type === 'NA') ? permit_type : '';
 }
 
-sanitizeUser_initial = (user_initial) => {
-  // Makes all intials in upper case
-  return user_initial.toUpperCase();
-}
 
 // sanitizeName = (name) => {
 //   return stringCapitalizeName(name);
