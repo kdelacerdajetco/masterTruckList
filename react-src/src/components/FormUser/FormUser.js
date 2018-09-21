@@ -62,13 +62,19 @@ class FormUser extends Component {
       formErrorMessage: ''
     }
 
+    // testing alterting handleInputChange since I am unable to type into any field
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleTrucknumChange = this.handleTrucknumChange.bind(this);
+    this.handleRepairtypeChange = this.handleRepairtypeChange.bind(this);
+    this.handleDrivercodeChange = this.handleDrivercodeChange.bind(this);
+
+
     // this.handleSelectChange = this.handleSelectChange.bind(this);
-// testing multiple drop down select options. seeing if it takes and fixes the error of not being able to select drop-down for multiple things
-this.handleTrucktypeChange = this.handleTrucktypeChange.bind(this);
-this.handleIsoosChange = this.handleIsoosChange.bind(this);
-this.handlePermittypeChange = this.handlePermittypeChange.bind(this);
-this.handleOpenassignChange = this.handleOpenassignChange.bind(this);
+    // testing multiple drop down select options. seeing if it takes and fixes the error of not being able to select drop-down for multiple things
+    this.handleTrucktypeChange = this.handleTrucktypeChange.bind(this);
+    this.handleIsoosChange = this.handleIsoosChange.bind(this);
+    this.handlePermittypeChange = this.handlePermittypeChange.bind(this);
+    this.handleOpenassignChange = this.handleOpenassignChange.bind(this);
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -95,13 +101,58 @@ this.handleOpenassignChange = this.handleOpenassignChange.bind(this);
     }
   }
 
+  // handleInputChange(e) {
+  //   const target = e.target;
+  //   const value = target.type === 'checkbox' ? target.checked : target.value;
+  //   const truck_num = target.truck_num;
+
+  //   this.setState({ [truck_num]: value });
+  // }
+
   handleInputChange(e) {
     const target = e.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    const truck_num = target.truck_num;
+    const name = target.name;
 
-    this.setState({ [truck_num]: value });
+    this.setState({ [name]: value });
   }
+
+  // handleRepairtypeChange(e) {
+  //   const target = e.target;
+  //   const value = target.type === 'checkbox' ? target.checked : target.value;
+  //   const repair_type = target.repair_type;
+
+  //   this.setState({ [repair_type]: value });
+  // }
+
+  handleRepairtypeChange(e, data) {
+    this.setState({ repair_type: data.value });
+  }
+
+  // handleDrivercodeChange(e) {
+  //   const target = e.target;
+  //   const value = target.type === 'checkbox' ? target.checked : target.value;
+  //   const driver_code = target.driver_code;
+
+  //   this.setState({ [driver_code]: value });
+  // }
+
+  handleDrivercodeChange(e, data) {
+    this.setState({ driver_code: data.value });
+  }
+
+  // handleTrucknumChange(e) {
+  //   const target = e.target;
+  //   const value = target.type === 'checkbox' ? target.checked : target.value;
+  //   const truck_num = target.truck_num;
+
+  //   this.setState({ [truck_num]: value });
+  // }
+
+  handleTrucknumChange(e, data) {
+    this.setState({ truck_num: data.value });
+  }
+
 
   // handleSelectChange(e, data) {
     // this.setState({ is_oos: data.value });
@@ -221,7 +272,7 @@ this.handleOpenassignChange = this.handleOpenassignChange.bind(this);
           name='truck_num'
           maxLength='5'
           required value={this.state.truck_num}
-          onChange={this.handleInputChange}
+          onChange={this.handleTrucknumChange}
           />
           <Form.Field
           control={Select}
@@ -240,7 +291,7 @@ this.handleOpenassignChange = this.handleOpenassignChange.bind(this);
           maxLength='50'
           // required value={this.state.repair_type}
           value={this.state.repair_type}
-          onChange={this.handleInputChange}
+          onChange={this.handleRepairtypeChange}
           />
           <Form.Field
           control={Select}
@@ -272,7 +323,7 @@ this.handleOpenassignChange = this.handleOpenassignChange.bind(this);
           maxLength='6'
           // required value={this.state.driver_code}
           value={this.state.driver_code}
-          onChange={this.handleInputChange}
+          onChange={this.handleDrivercodeChange}
           />
           <Form.Field
           control={Select}
