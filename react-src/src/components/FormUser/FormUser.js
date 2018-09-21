@@ -149,8 +149,16 @@ class FormUser extends Component {
   //   this.setState({ [truck_num]: value });
   // }
 
-  handleTrucknumChange(e, data) {
-    this.setState({ truck_num: data.value });
+  // handleTrucknumChange(e) {
+  //   const target = e.target;
+  //   const value = target.type === 'checkbox' ? target.checked : target.value;
+  //   const name = target.truck_num;
+
+  //   this.setState({ [name]: value });
+  // }
+
+  handleTrucknumChange(data) {
+    this.setState({ truck_num:data.value });
   }
 
 
