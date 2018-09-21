@@ -77,7 +77,7 @@ const UserSchema = new mongoose.Schema({
   // was name. now is truck_num. 
   truck_num: {
     type: Number,
-    required: [true, 'truck_num is required.'],
+    // required: [true, 'truck_num is required.'],
     // was nameValidator
     validate: truck_num_validator
   },
