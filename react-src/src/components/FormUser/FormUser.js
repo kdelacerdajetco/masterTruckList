@@ -63,7 +63,13 @@ class FormUser extends Component {
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSelectChange = this.handleSelectChange.bind(this);
+    // this.handleSelectChange = this.handleSelectChange.bind(this);
+// testing multiple drop down select options. seeing if it takes and fixes the error of not being able to select drop-down for multiple things
+this.handleTrucktypeChange = this.handleTrucktypeChange.bind(this);
+this.handleIsoosChange = this.handleIsoosChange.bind(this);
+this.handlePermittypeChange = this.handlePermittypeChange.bind(this);
+this.handleOpenassignChange = this.handleOpenassignChange.bind(this);
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -97,19 +103,38 @@ class FormUser extends Component {
     this.setState({ [truck_num]: value });
   }
 
-  handleSelectChange(e, data) {
+  // handleSelectChange(e, data) {
     // this.setState({ is_oos: data.value });
     // this.setState({ open_assign: data.value });
     // this.setState({ truck_type: data.value });
-    this.setState({ permit_type: data.value });
+
+    // this one works for only one
+    // this.setState({ permit_type: data.value });
+
+
     // this.setState = {
     //   is_oos: data.value,
     //   open_assign: data.value,
     //   truck_type: data.value,
     //   permit_type: data.value
     // }
+  // }
+
+  handleTrucktypeChange(e, data) {
+    this.setState({ truck_type: data.value });
   }
 
+  handleIsoosChange(e, data) {
+    this.setState({ is_oos: data.value });
+  }
+
+  handlePermittypeChange(e, data) {
+    this.setState({ permit_type: data.value });
+  }
+
+  handleOpenassignChange(e, data) {
+    this.setState({ open_assign: data.value });
+  }
 
   handleSubmit(e) {
     // Prevent browser refresh
@@ -205,7 +230,7 @@ class FormUser extends Component {
           placeholder='IS OOS'
           name='is_oos'
           value={this.state.is_oos}
-          onChange={this.handleSelectChange}
+          onChange={this.handleIsoosChange}
           />
           <Form.Input
           label='Repair Type'
@@ -224,7 +249,7 @@ class FormUser extends Component {
           placeholder='Select'
           name='open_assign'
           value={this.state.open_assign}
-          onChange={this.handleSelectChange}
+          onChange={this.handleOpenassignChange}
           />
         {/* </Form.Group> */}
         {/* <Form.Group widths ='equal'> */}
@@ -237,7 +262,7 @@ class FormUser extends Component {
           placeholder='Truck Type'
           name='truck_type'
           value={this.state.truck_type}
-          onChange={this.handleSelectChange}
+          onChange={this.handleTrucktypeChange}
           />
           <Form.Input
           label='Driver Code'
@@ -256,7 +281,7 @@ class FormUser extends Component {
           placeholder='Permit Type'
           name='permit_type'
           value={this.state.permit_type}
-          onChange={this.handleSelectChange}
+          onChange={this.handlePermittypeChange}
           />
           {/* log in using passport
           take information from passport to key into this field (most likely on FormUser.js) */}

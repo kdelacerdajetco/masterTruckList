@@ -143,7 +143,7 @@ router.put('/:id', (req, res) => {
               open_assign: newResult.open_assign,
               truck_type: newResult.truck_type,
               driver_code: newResult.driver_code,
-              permit_type: newResult.permit_type,
+              permit_type: newResult.permit_type
             }
           });
         })
@@ -234,7 +234,9 @@ sanitizeRepair_type = (repair_type) => {
 
 sanitizeOpen_assign = (open_assign) => {
   // Return empty if it's neither of the assign qualities listed below
-  return (open_assign === 'Open' || open_assign === 'Assigned' || open_assign === 'Temp Assigned') ? open_assign : '';
+  // return (open_assign === 'Open' || open_assign === 'Assigned' || open_assign === 'Temp Assigned') ? open_assign : '';
+  return stringCapitalizeName(open_assign);
+
 }
 
 sanitizeTruck_type = (truck_type) => {
@@ -246,12 +248,13 @@ sanitizeDriver_code = (driver_code) => {
   // return ( "(" & driver_code.toUpperCase() & ")" );
 
   // Seeing if removing the '()' from the field makes the field work. 
-  return ( driver_code.toUpperCase() );
+  return driver_code.toUpperCase();
 }
 
 sanitizePermit_type = (permit_type) => {
   // List of options for permit_type, else blank
-  return (permit_type === 'Annual' || permit_type === '26 W Ramps' || permit_type === '32 Ramps' || permit_type === 'Overweight' || permit_type === '30 Day Width' || permit_type === '90 Day Width' || permit_type === 'Other' || permit_type === 'NA') ? permit_type : '';
+  // return (permit_type === 'Annual' || permit_type === '26 W Ramps' || permit_type === '32 Ramps' || permit_type === 'Overweight' || permit_type === '30 Day Width' || permit_type === '90 Day Width' || permit_type === 'Other' || permit_type === 'NA') ? permit_type : '';
+  return stringCapitalizeName(permit_type);
 }
 
 
