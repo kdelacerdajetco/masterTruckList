@@ -157,7 +157,7 @@ class FormUser extends Component {
   //   this.setState({ [name]: value });
   // }
 
-  handleTrucknumChange(data) {
+  handleTrucknumChange(e, data) {
     this.setState({ truck_num:data.value });
   }
 
