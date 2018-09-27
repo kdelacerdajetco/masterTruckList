@@ -218,29 +218,34 @@ module.exports = router;
 // Minor sanitizing to be invoked before reaching the database
 sanitizeTruck_num = (truck_num) => {
   // Return empty if truck_num is non-numeric
-  if (isNaN(truck_num) && truck_num != '') return '';
-  return (truck_num === '') ? truck_num : parseInt(truck_num);
+  // if (isNaN(truck_num) && truck_num != '') return '';
+  // return (truck_num === '') ? truck_num : parseInt(truck_num);
+  return truck_num;
 }
 
 sanitizeIs_oos = (is_oos) => {
   // Return empty if it's neither of the two
-  return (is_oos === 'IS' || is_oos === 'OOS') ? is_oos : '';
+  // return (is_oos === 'IS' || is_oos === 'OOS') ? is_oos : '';
+  return is_oos;
 }
 
 sanitizeRepair_type = (repair_type) => {
   //Capitalizes the repair_type information 
-  return stringCapitalizeName(repair_type);
+  // return stringCapitalizeName(repair_type);
+  return repair_type;
 }
 
 sanitizeOpen_assign = (open_assign) => {
   // Return empty if it's neither of the assign qualities listed below
   // return (open_assign === 'Open' || open_assign === 'Assigned' || open_assign === 'Temp Assigned') ? open_assign : '';
-  return stringCapitalizeName(open_assign);
+  // return stringCapitalizeName(open_assign);
+  return open_assign;
 
 }
 
 sanitizeTruck_type = (truck_type) => {
-  return (truck_type === 'HH' || truck_type === 'LTL' || truck_type === 'OD' || truck_type === 'IM' || truck_type === 'Van OTR' || truck_type === 'Van LOC') ? truck_type : '';
+  // return (truck_type === 'HH' || truck_type === 'LTL' || truck_type === 'OD' || truck_type === 'IM' || truck_type === 'Van OTR' || truck_type === 'Van LOC') ? truck_type : '';
+  return truck_type;
 }
 
 sanitizeDriver_code = (driver_code) => {
@@ -248,13 +253,15 @@ sanitizeDriver_code = (driver_code) => {
   // return ( "(" & driver_code.toUpperCase() & ")" );
 
   // Seeing if removing the '()' from the field makes the field work. 
-  return driver_code.toUpperCase();
+  // return driver_code.toUpperCase();
+  return driver_code;
 }
 
 sanitizePermit_type = (permit_type) => {
   // List of options for permit_type, else blank
   // return (permit_type === 'Annual' || permit_type === '26 W Ramps' || permit_type === '32 Ramps' || permit_type === 'Overweight' || permit_type === '30 Day Width' || permit_type === '90 Day Width' || permit_type === 'Other' || permit_type === 'NA') ? permit_type : '';
-  return stringCapitalizeName(permit_type);
+  // return stringCapitalizeName(permit_type);
+  return permit_type;
 }
 
 

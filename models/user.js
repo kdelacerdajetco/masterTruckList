@@ -6,7 +6,7 @@ const validate = require('mongoose-validator');
 const truck_num_validator = [
   validate({
     validator: 'isLength',
-    arguments: [0, 5],
+    arguments: [0, 3],
     message: 'Truck number must not exceed {ARGS[1]} characters.'
   })
 ];

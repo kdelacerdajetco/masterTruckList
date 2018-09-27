@@ -278,7 +278,7 @@ class FormUser extends Component {
           type='number'
           placeholder='123'
           name='truck_num'
-          maxLength='5'
+          maxLength='3'
           required value={this.state.truck_num}
           onChange={this.handleTrucknumChange}
           />
