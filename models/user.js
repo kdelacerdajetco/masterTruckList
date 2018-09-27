@@ -79,38 +79,38 @@ const UserSchema = new mongoose.Schema({
     type: Number,
     // required: [true, 'truck_num is required.'],
     // was nameValidator
-    validate: truck_num_validator
+    // validate: truck_num_validator
   },
   // was email. now is_oos
   is_oos: {
     type: String,
     // required: [true, 'IS_OOS is required.'],
     // unique: true,
-    validate: is_oos_validator
+    // validate: is_oos_validator
   },
   repair_type: {
     type: String,
     // required: [false],
-    validate: repair_type_validator
+    // validate: repair_type_validator
 
   },
   open_assign: {
     type: String,
-    validate: open_assign_validator
+    // validate: open_assign_validator
   },
   truck_type: {
     type: String,
-    validate: truck_type_validator
+    // validate: truck_type_validator
   },
   driver_code :{
     type: String,
     // required: [true, 'Driver Code is required'],
-    validate: driver_code_validator
+    // validate: driver_code_validator
   },
   permit_type: {
     type: String,
     // required: [false],
-    validate: permit_type_validator
+    // validate: permit_type_validator
   }
 
 });
