@@ -112,9 +112,9 @@ class FormUser extends Component {
   handleInputChange(e) {
     const target = e.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
+    const truck_num = target.truck_num;
 
-    this.setState({ [name]: value });
+    this.setState({ [truck_num]: value });
   }
 
   // handleRepairtypeChange(e) {
