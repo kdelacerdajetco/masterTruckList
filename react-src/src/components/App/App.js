@@ -93,8 +93,8 @@ class App extends Component {
       <div>
         <div className='App'>
           <div className='App-header'>
+          {/* <h1 className='App-intro'>Master Truck List</h1> */}
             <img src={logo} className='App-logo' alt='logo' />
-            {/* <h1 className='App-intro'>Master Truck List</h1> */}
             <p><br></br>
               Update trucks based on the variables below. 
             </p>
@@ -104,7 +104,7 @@ class App extends Component {
               <a className='social-link' href='https://github.com/cefjoeii' target='_blank' rel='noopener noreferrer'>GitHub</a> &bull; <a className='social-link' href='https://linkedin.com/in/cefjoeii' target='_blank' rel='noopener noreferrer'>LinkedIn</a> &bull; <a className='social-link' href='https://twitter.com/cefjoeii' target='_blank' rel='noopener noreferrer'>Twitter</a>
             </p>
             <a className='shirts' href='https://www.teepublic.com/user/codeweario' target='_blank' rel='noopener noreferrer'>
-              <img src={shirts} alt='Programmer Shirts' />
+              <img src={shirts} alt='Programmer Shirts' /> 
               <span>Ad</span>
             </a> */}
           </div>
