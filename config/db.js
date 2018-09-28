@@ -3,7 +3,8 @@
 //  var db;
 
 module.exports = {
- db: process.env.DB
+//  db: process.env.DB
+ db: process.env.MONGODB_URI
 //  db: 'mongodb://localhost/mastertrucklist'
 };
 
