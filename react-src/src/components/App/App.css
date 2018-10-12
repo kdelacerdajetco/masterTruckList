@@ -15,7 +15,7 @@
   margin-top: 10px;
 }
 
-a.social-link {
+/* a.social-link {
   color: #ccc;
   font-family: monospace;
 }
@@ -27,13 +27,13 @@ a.social-link:hover {
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
+} */
 
 #online {
   margin-left: 10px;
 }
 
-.shirts {
+/* .shirts {
   opacity: .75;
 }
 
@@ -48,4 +48,31 @@ a.shirts {
 
 .shirts img {
   height: 40px;
+} */
+
+/* @media only screen {
+	.ui.tiny.modal {
+        top: 380px !important;
+  }
+  .ui.mini.modal {
+    top: 380px !important;
+}
+.ui.small.modal {
+  top: 380px !important;
+}
+.ui.large.modal {
+  top: 380px !important;
+}
+} */
+
+/* .modal {
+top: 380px !important;
+} */
+
+/* the below keeps the ui.tiny.modal from appearing in the top left corner. Semantic CSS bug. Can probably also fix with a different version for semantic ui (npm install semantic-ui-css@2.2.14 per a user on Github) */
+.visible.transition {
+  margin-top: auto !important;
+  display: inline-block !important;
+  position: relative;
+  top: 20%;
 }

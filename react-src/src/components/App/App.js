@@ -93,8 +93,9 @@ class App extends Component {
       <div>
         <div className='App'>
           <div className='App-header'>
-          {/* <h1 className='App-intro'>Master Truck List</h1> */}
             <img src={logo} className='App-logo' alt='logo' />
+            {/* <h1 className='App-intro'>Master Truck List</h1> */}
+
             <p><br></br>
               Update trucks based on the variables below. 
             </p>
