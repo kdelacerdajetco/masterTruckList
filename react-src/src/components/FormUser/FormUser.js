@@ -365,7 +365,7 @@ class FormUser extends Component {
           type='text'
           placeholder='123'
           name='omni_serial'
-          maxLength='50'
+          maxLength='100'
           // required value={this.state.omni_serial}
           value={this.state.omni_serial}
           onChange={this.handleOmniserialChange}
@@ -375,7 +375,7 @@ class FormUser extends Component {
           type='text'
           placeholder='123'
           name='drivecam_serial'
-          maxLength='50'
+          maxLength='100'
           // required value={this.state.drivecam_serial}
           value={this.state.drivecam_serial}
           onChange={this.handleDrivecamserialChange}

@@ -71,6 +71,21 @@ const permit_type_validator = [
   })
 ];
 
+const omni_serial = [
+  validate({
+    validator: 'isLength',
+    arguments: [0,100],
+    message: 'Omni Serial should not exceed {ARGS[1]} characters.'
+  })
+];
+
+const drivecam_serial = [
+  validate({
+    validator: 'isLength',
+    arguments: [0,100],
+    message: 'Drive Cam Serial should not exceed {ARGS[1]} characters.'
+  })
+];
 
 // Define the database model
 const UserSchema = new mongoose.Schema({
