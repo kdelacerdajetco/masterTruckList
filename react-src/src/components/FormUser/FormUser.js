@@ -324,11 +324,11 @@ class FormUser extends Component {
           onChange={this.handleTrucktypeChange}
           />
           <Form.Input
-          label='Driver Code'
+          label='Driver Name'
           type='text'
-          placeholder = 'DRICOD'
+          placeholder = 'Driver Name'
           name='driver_code'
-          maxLength='6'
+          maxLength='100'
           // required value={this.state.driver_code}
           value={this.state.driver_code}
           onChange={this.handleDrivercodeChange}
