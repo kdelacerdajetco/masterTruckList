@@ -55,7 +55,7 @@ class TableUser extends Component {
             <Table.HeaderCell>Repair Type</Table.HeaderCell>
             <Table.HeaderCell>Open/Assigned</Table.HeaderCell>
             <Table.HeaderCell>Truck Type</Table.HeaderCell>
-            <Table.HeaderCell>Driver Code</Table.HeaderCell>
+            <Table.HeaderCell>Driver Name</Table.HeaderCell>
             <Table.HeaderCell>Permit Type</Table.HeaderCell>
             <Table.HeaderCell>Actions</Table.HeaderCell>
           </Table.Row>

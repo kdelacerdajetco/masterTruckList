@@ -58,8 +58,8 @@ const truck_type_validator = [
 const driver_code_validator = [
   validate({
     validator: 'isLength',
-    arguments: [0,6],
-    message: 'Driver Code should not exceed {ARGS[1]} characters.'
+    arguments: [0,100],
+    message: 'Driver Name should not exceed {ARGS[1]} characters.'
   })
 ];
 
