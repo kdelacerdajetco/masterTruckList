@@ -67,6 +67,8 @@ class App extends Component {
         users[i].truck_type = user.truck_type;
         users[i].driver_code = user.driver_code;
         users[i].permit_type = user.permit_type;
+        users[i].omni_serial = user.omni_serial;
+        users[i].drivecam_serial = user.drivecam_serial;
 
         // users[i].email = user.email;
         // users[i].age = user.age;

@@ -57,6 +57,8 @@ class FormUser extends Component {
       truck_type: '',
       driver_code: '',
       permit_type: '',
+      omni_serial: '',
+      drivecam_serial: '',
       formClassName: '',
       formSuccessMessage: '',
       formErrorMessage: ''
@@ -67,6 +69,8 @@ class FormUser extends Component {
     this.handleTrucknumChange = this.handleTrucknumChange.bind(this);
     this.handleRepairtypeChange = this.handleRepairtypeChange.bind(this);
     this.handleDrivercodeChange = this.handleDrivercodeChange.bind(this);
+    this.handleOmniserialChange = this.handleOmniserialChange.bind(this);
+    this.handleDrivecamserialChange = this.handleDrivecamserialChange.bind(this);
 
 
     // this.handleSelectChange = this.handleSelectChange.bind(this);
@@ -93,6 +97,8 @@ class FormUser extends Component {
           truck_type: response.data.truck_type,
           driver_code: response.data.driver_code,
           permit_type: response.data.permit_type,
+          omni_serial: response.data.omni_serial,
+          drivecam_serial: response.data.drivecam_serial
         });
       })
       .catch((err) => {
@@ -195,6 +201,14 @@ class FormUser extends Component {
     this.setState({ open_assign: data.value });
   }
 
+  handleOmniserialChange(e, data) {
+    this.setState({ omni_serial: data.value });
+  }
+
+  handleDrivecamserialChange(e, data) {
+    this.setState({ drivecam_serial: data.value });
+  }
+
   handleSubmit(e) {
     // Prevent browser refresh
     e.preventDefault();
@@ -206,7 +220,9 @@ class FormUser extends Component {
       open_assign: this.state.open_assign,
       truck_type: this.state.truck_type,
       driver_code: this.state.driver_code,
-      permit_type: this.state.permit_type
+      permit_type: this.state.permit_type,
+      omni_serial: this.state.omni_serial,
+      drivecam_serial: this.state.drivecam_serial
     }
 
     // Acknowledge that if the user id is provided, we're updating via PUT
@@ -234,7 +250,9 @@ class FormUser extends Component {
           open_assign: '',
           truck_type: '',
           driver_code: '',
-          permit_type: ''
+          permit_type: '',
+          omni_serial: '',
+          drivecam_serial: ''
         });
         this.props.onUserAdded(response.data.result);
         this.props.socket.emit('add', response.data.result);
@@ -341,6 +359,24 @@ class FormUser extends Component {
           name='permit_type'
           value={this.state.permit_type}
           onChange={this.handlePermittypeChange}
+          />
+           <Form.Input
+          label='Omni Serial'
+          type='text'
+          placeholder='123'
+          name='omni_serial'
+          maxLength='50'
+          // required value={this.state.omni_serial}
+          onChange={this.handleOmniserialChange}
+          />
+           <Form.Input
+          label='Drive Cam Serial'
+          type='text'
+          placeholder='123'
+          name='drivecam_serial'
+          maxLength='50'
+          // required value={this.state.drivecam_serial}
+          onChange={this.handleDrivecamserialChange}
           />
           {/* log in using passport
           take information from passport to key into this field (most likely on FormUser.js) */}

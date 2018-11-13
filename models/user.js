@@ -111,6 +111,12 @@ const UserSchema = new mongoose.Schema({
     type: String,
     // required: [false],
     // validate: permit_type_validator
+  },
+  omni_serial :{
+    type: String,
+  },
+  drivecam_serial :{
+    type: String,
   }
 
 });
