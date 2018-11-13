@@ -367,6 +367,7 @@ class FormUser extends Component {
           name='omni_serial'
           maxLength='50'
           // required value={this.state.omni_serial}
+          value={this.state.omni_serial}
           onChange={this.handleOmniserialChange}
           />
            <Form.Input
@@ -376,6 +377,7 @@ class FormUser extends Component {
           name='drivecam_serial'
           maxLength='50'
           // required value={this.state.drivecam_serial}
+          value={this.state.drivecam_serial}
           onChange={this.handleDrivecamserialChange}
           />
           {/* log in using passport
