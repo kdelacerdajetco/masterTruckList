@@ -55,6 +55,8 @@ router.post('/', postLimiter, (req, res) => {
     truck_type: sanitizeTruck_type(req.body.truck_type),
     driver_code: sanitizeDriver_code(req.body.driver_code),
     permit_type: sanitizePermit_type(req.body.permit_type),
+    omni_serial: sanitizeOmni_serial(req.body.omni_serial),
+    drivecam_serial: sanitizeDrivecam_serial(req.body.drivecam_serial)
   });
 
   newUser.save()
@@ -71,6 +73,8 @@ router.post('/', postLimiter, (req, res) => {
           truck_type: result.truck_type,
           driver_code: result.driver_code,
           permit_type: result.permit_type,
+          omni_serial: result.omni_serial,
+          drivecam_serial: result.drivecam_serial
         }
       });
     })
@@ -104,6 +108,14 @@ router.post('/', postLimiter, (req, res) => {
           res.status(400).json({ success: false, msg: err.errors.permit_type.message });
           return;
         }
+        if(err.errors.omni_serial){
+          res.status(400).json({success: false, msg: err.errors.omni_serial.message });
+          return;
+        }
+        if(err.errors.drivecam_serial){
+          res.status(400).json({success: false, msg: err.errors.drivecam_serial.message });
+          return;
+        }
         // Show failed if all else fails for some reasons
         res.status(500).json({ success: false, msg: `Something went wrong. ${err}` });
       }
@@ -126,6 +138,8 @@ router.put('/:id', (req, res) => {
     truck_type: sanitizeTruck_type(req.body.truck_type),
     driver_code: sanitizeDriver_code(req.body.driver_code),
     permit_type: sanitizePermit_type(req.body.permit_type),
+    omni_serial: sanitizeOmni_serial(req.body.omni_serial),
+    drivecam_serial: sanitizeDrivecam_serial(req.body.drivecam_serial)
   };
 
   User.findOneAndUpdate({ _id: req.params.id }, updatedUser, { runValidators: true, context: 'query' })
@@ -143,7 +157,9 @@ router.put('/:id', (req, res) => {
               open_assign: newResult.open_assign,
               truck_type: newResult.truck_type,
               driver_code: newResult.driver_code,
-              permit_type: newResult.permit_type
+              permit_type: newResult.permit_type,
+              omni_serial: newResult.omni_serial,
+              drivecam_serial: newResult.drivecam_serial
             }
           });
         })
@@ -182,6 +198,14 @@ router.put('/:id', (req, res) => {
           res.status(400).json({ success: false, msg: err.errors.permit_type.message });
           return;
         }
+        if (err.errors.omni_serial) {
+          res.status(400).json({success: false, msg: err.errors.omni_serial.message });
+          return;
+        }
+        if (err.errors.drivecam_serial) {
+          res.status(400).json({success: false, msg: err.errors.drivecam_serial.message });
+          return;
+        }
         // Show failed if all else fails for some reasons
         res.status(500).json({ success: false, msg: `Something went wrong. ${err}` });
       }
@@ -204,7 +228,9 @@ router.delete('/:id', (req, res) => {
           open_assign: result.open_assign,
           truck_type: result.truck_type,
           driver_code: result.driver_code,
-          permit_type: result.permit_type
+          permit_type: result.permit_type,
+          omni_serial: result.omni_serial,
+          drivecam_serial: result.drivecam_serial
         }
       });
     })
@@ -262,6 +288,14 @@ sanitizePermit_type = (permit_type) => {
   // return (permit_type === 'Annual' || permit_type === '26 W Ramps' || permit_type === '32 Ramps' || permit_type === 'Overweight' || permit_type === '30 Day Width' || permit_type === '90 Day Width' || permit_type === 'Other' || permit_type === 'NA') ? permit_type : '';
   // return stringCapitalizeName(permit_type);
   return permit_type;
+}
+
+sanitizeOmni_serial = (omni_serial) => {
+  return omni_serial;
+}
+
+sanitizeDrivecam_serial = (drivecam_serial) => {
+  return drivecam_serial;
 }
 
 
