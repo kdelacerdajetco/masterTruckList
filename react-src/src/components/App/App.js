@@ -99,7 +99,8 @@ class App extends Component {
     {
       // return TableUser.Table.HeaderCell.includes(query) || TableUser.Table.Body.includes(query)
       // return TableUser.HeaderCell.includes(query) || TableUser.Body.includes(query)
-      return Table.HeaderCell.includes(query) || Table.Body.includes(query)
+      // return Table.HeaderCell.includes(query) || Table.Body.includes(query)
+      return users.HeaderCell.includes(query) || users.Body.includes(query)
 
     });
     console.log(users)
