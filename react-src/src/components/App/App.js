@@ -12,6 +12,8 @@ import './App.css';
 
 // import FormUser from '../FormUser/FormUser.js';
 import SearchUser from '../FilterUser/SearchUser.js';
+import { Table } from 'semantic-ui-react';
+
 
 
 class App extends Component {
@@ -90,13 +92,14 @@ class App extends Component {
   }
 
   // work on this! only two lines of code left to figure out before filtering is functional 11.28.2018
+  // added TableUser.js import at the top of this page in hopes that Table.HeaderCell or Table.Body will work. 
   searchUsers(query){
     console.log("Our App knows the query: " + query);
     let users = this.state.users.filter((users) =>
     {
       // return TableUser.Table.HeaderCell.includes(query) || TableUser.Table.Body.includes(query)
-      return TableUser.HeaderCell.includes(query) || TableUser.Body.includes(query)
-      // return Table.HeaderCell.includes(query) || Table.Body.includes(query)
+      // return TableUser.HeaderCell.includes(query) || TableUser.Body.includes(query)
+      return Table.HeaderCell.includes(query) || Table.Body.includes(query)
 
     });
     console.log(users)
