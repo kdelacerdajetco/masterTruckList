@@ -4,6 +4,11 @@ import { Table } from 'semantic-ui-react';
 import ModalUser from '../ModalUser/ModalUser';
 import ModalConfirmDelete from '../ModalConfirmDelete/ModalConfirmDelete';
 
+// may delete later -- 
+// import FormUser from '../FormUser/FormUser.js';
+// import SearchUser from '../FilterUser/SearchUser.js';
+//end may delete later -- 
+
 class TableUser extends Component {
 
   render() {
@@ -49,6 +54,9 @@ class TableUser extends Component {
     users =  [...users].reverse();
 
     return (
+
+
+
       <Table singleLine>
         <Table.Header>
           <Table.Row>

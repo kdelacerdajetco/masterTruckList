@@ -10,6 +10,10 @@ import logo from '../../siteLogo.png';
 // import shirts from '../../shirts.png';
 import './App.css';
 
+// import FormUser from '../FormUser/FormUser.js';
+import SearchUser from '../FilterUser/SearchUser.js';
+
+
 class App extends Component {
 
   constructor() {
@@ -85,6 +89,20 @@ class App extends Component {
     this.setState({ users: users });
   }
 
+  // work on this! only two lines of code left to figure out before filtering is functional 11.28.2018
+  searchUsers(query){
+    console.log("Our App knows the query: " + query);
+    let users = this.state.users.filter((users) =>
+    {
+      // return TableUser.Table.HeaderCell.includes(query) || TableUser.Table.Body.includes(query)
+      return TableUser.HeaderCell.includes(query) || TableUser.Body.includes(query)
+      // return Table.HeaderCell.includes(query) || Table.Body.includes(query)
+
+    });
+    console.log(users)
+    this.setState({users: users})
+  }
+
   render() {
 
     let online = this.state.online;
@@ -123,6 +141,9 @@ class App extends Component {
             socket={this.socket}
           />
           <em id='online'>{`${online} ${noun} ${verb} online.`}</em>
+          <SearchUser 
+            searchUsers={this.searchUsers.bind(this)}
+          />
           <TableUser
             onUserUpdated={this.handleUserUpdated}
             onUserDeleted={this.handleUserDeleted}
