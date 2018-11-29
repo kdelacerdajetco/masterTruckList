@@ -45,3 +45,12 @@
                   updateTitle={this.updateTitle.bind(this)}
                   updateBody={this.updateBody.bind(this)}/> */}
       </div>
+
+
+
+
+let users = this.state.fetchUsers.filter((user) =>
+{
+        return user.TableUser.Body.includes(query)
+});
+this.setSTate({users:users})
