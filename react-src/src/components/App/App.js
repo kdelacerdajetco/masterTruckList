@@ -97,11 +97,14 @@ class App extends Component {
   searchUsers(query){
     console.log("Our App knows the query: " + query);
     let users = this.state.users.filter((query) =>
+    // users = this.state.users.slice();
+    // users = users.filter((users)  =>
+    
     {
       // return TableUser.Table.HeaderCell.includes(query) || TableUser.Table.Body.includes(query)
       // return TableUser.HeaderCell.includes(query) || TableUser.Body.includes(query)
       // closer... (right below)
-      return TableUser.Body.includes(query)
+      return users.Body.includes(query)
       // return Table.HeaderCell.includes(query) || Table.Body.includes(query)
       // return Table.HeaderCell.includes(query) || Table.Body.includes(query)
       // return Table.HeaderCell.includes(query) || Table.Body.includes(query)
