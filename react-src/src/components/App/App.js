@@ -104,7 +104,7 @@ class App extends Component {
 
     // let tbody = this.state.TableUser;
     let users = this.state.users.filter((user) =>
-
+    // let user = this.state.user.filter((users)
 
     {
       // return TableUser.Table.HeaderCell.includes(query) || TableUser.Table.Body.includes(query)
@@ -117,8 +117,8 @@ class App extends Component {
 
 
       // return user.includes(query)
-      return user.users.includes(query)
-      // return users.user.includes(query)
+      // return user.users.includes(query)
+      return users.user.includes(query)
 
 
     });
