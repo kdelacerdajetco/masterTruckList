@@ -33,6 +33,7 @@ class App extends Component {
     this.handleUserAdded = this.handleUserAdded.bind(this);
     this.handleUserUpdated = this.handleUserUpdated.bind(this);
     this.handleUserDeleted = this.handleUserDeleted.bind(this);
+    // this.tbody = this.tbody.bind(this);
   }
 
   // Place socket.io code inside here
@@ -101,7 +102,7 @@ class App extends Component {
     // users = users.filter((users)  =>
     // let users = this.state.users.filter((query) =>
 
-
+    // let tbody = this.state.TableUser;
     let users = this.state.users.filter((user) =>
 
 
@@ -115,7 +116,9 @@ class App extends Component {
       // return users.TableUser.Table.Body.includes(query)
 
 
-      return user.tBody.includes(query)
+      return user.includes(query)
+      // return user.users.includes(query)
+      // return users.user.includes(query)
 
 
     });
