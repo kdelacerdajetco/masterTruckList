@@ -120,7 +120,7 @@ class App extends Component {
 
       //the bottom is the closet to the solution. however, 'users' is not correct.
       // return user.users.includes(query)
-      return user.tbody.includes(query)
+      return user.body.includes(query)
 
       //most likely not the one below 
       // return users.user.includes(query)
