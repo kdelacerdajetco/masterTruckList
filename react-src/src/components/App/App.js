@@ -99,8 +99,8 @@ class App extends Component {
     let users = this.state.users.filter((query) =>
     {
       // return TableUser.Table.HeaderCell.includes(query) || TableUser.Table.Body.includes(query)
-      return TableUser.HeaderCell.includes(query) || TableUser.Body.includes(query)
-      // return TableUser.Table.Body.includes(query)
+      // return TableUser.HeaderCell.includes(query) || TableUser.Body.includes(query)
+      return TableUser.Table.Body.includes(query)
       // return Table.HeaderCell.includes(query) || Table.Body.includes(query)
       // return Table.HeaderCell.includes(query) || Table.Body.includes(query)
       // return Table.HeaderCell.includes(query) || Table.Body.includes(query)
