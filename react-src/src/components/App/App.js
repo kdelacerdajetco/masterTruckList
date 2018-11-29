@@ -96,6 +96,7 @@ class App extends Component {
  // 11.28.18 -- Last update to the below -- Console is still reading the includes line as undefined. Maybe do the trick right above where the user id is noted; u.id
   searchUsers(query){
     console.log("Our App knows the query: " + query);
+    // let users = this.state.users.slice();
     let users = this.state.users.filter((query) =>
     // users = this.state.users.slice();
     // users = users.filter((users)  =>
@@ -104,7 +105,7 @@ class App extends Component {
       // return TableUser.Table.HeaderCell.includes(query) || TableUser.Table.Body.includes(query)
       // return TableUser.HeaderCell.includes(query) || TableUser.Body.includes(query)
       // closer... (right below)
-      return users.Body.includes(query)
+      return users.TableUser.Table.Body.includes(query)
       // return Table.HeaderCell.includes(query) || Table.Body.includes(query)
       // return Table.HeaderCell.includes(query) || Table.Body.includes(query)
       // return Table.HeaderCell.includes(query) || Table.Body.includes(query)
