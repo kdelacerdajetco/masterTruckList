@@ -116,8 +116,8 @@ class App extends Component {
       // return users.TableUser.Table.Body.includes(query)
 
 
-      return user.includes(query)
-      // return user.users.includes(query)
+      // return user.includes(query)
+      return user.users.includes(query)
       // return users.user.includes(query)
 
 
