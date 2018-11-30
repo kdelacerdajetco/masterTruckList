@@ -95,7 +95,9 @@ class App extends Component {
   // work on this! only two lines of code left to figure out before filtering is functional 11.28.2018
   // added TableUser.js import at the top of this page in hopes that Table.HeaderCell or Table.Body will work. 
  // 11.28.18 -- Last update to the below -- Console is still reading the includes line as undefined. Maybe do the trick right above where the user id is noted; u.id
-  searchUsers(query){
+ 
+
+ searchUsers(query){
     console.log("Our App knows the query: " + query);
     // let users = this.state.users.slice();
     // users = this.state.users.slice();
@@ -103,7 +105,16 @@ class App extends Component {
     // let users = this.state.users.filter((query) =>
 
     // let tbody = this.state.TableUser;
-    let users = this.state.users.filter((user) =>
+    // let users = this.state.users.filter((user) =>
+    // var users = users.filter((u => { return u._id !== user._id})
+
+    let users = this.state.users.filter((users) =>
+
+
+    // let users = users.filter((u => { return u._id !== user._id}) 
+
+    // let user = this.state.user.filter((users) =>
+
     // let user = this.state.user.filter((users) =>
 
     {
@@ -119,16 +130,17 @@ class App extends Component {
       // return user.includes(query)
 
       //the bottom is the closet to the solution. however, 'users' is not correct.
-      // return user.users.includes(query)
-      return user.body.includes(query)
+      // return users.body.includes(query)
+      return users.body.includes(query)
 
       //most likely not the one below 
       // return users.user.includes(query)
 
 
     });
-    console.log(users)
-    this.setState({users: users})
+    // console.log(users);
+    console.log(users);
+    this.setState({users: users});
   }
 
   render() {
