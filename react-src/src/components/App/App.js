@@ -121,10 +121,29 @@ class App extends Component {
  
  // 12.06.2018
  searchUsers(query){
-  let users = this.state.users.slice();
-      users = users.filter(user => { 
+  let users = this.state.allUsers.filter((user) => {
 
-    // let users = this.state.allUsers.filter((user) => {
+
+  // let users = this.state.users.slice();
+      // users = users.filter(user => { 
+      // users = users.allUsers.filter(user => { 
+      // users = allUsers.filter(user => { 
+
+
+  // for (let i = 0, n = users.length; i < n; i++) {
+  //   if (users[i]._id === user._id) {
+  //     users[i].truck_num = user.truck_num;
+  //     users[i].is_oos = user.is_oos;
+  //     users[i].repair_type = user.repair_type;
+  //     users[i].open_assign = user.open_assign;
+  //     users[i].truck_type = user.truck_type;
+  //     users[i].driver_code = user.driver_code;
+  //     users[i].permit_type = user.permit_type;
+  //     users[i].omni_serial = user.omni_serial;
+  //     users[i].drivecam_serial = user.drivecam_serial;
+  //     break;
+
+
 
          return user.truck_num.includes(query) || user.is_oos.includes(query) || user.repair_type.includes(query) || user.open_assign.includes(query) || user.truck_type.includes(query) || user.driver_code.includes(query) || user.permit_type.includes(query) || user.omni_serial.includes(query) || user.drivecam_serial.includes(query)
         });
