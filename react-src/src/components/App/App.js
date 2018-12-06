@@ -50,13 +50,13 @@ class App extends Component {
     // const users = this.state.users.slice();
 
     // const users = this.socket.on('filter', data => this.handleSearch({users: data, allUsers: data}));
-    const users = this.socket.on('filter', data => this.handleSearch(data));
+    // const users = this.socket.on('filter', data => this.handleSearch(data));
         // const users = this.socket.on('filter', data => this.setState({ users: data, allUsers: data}));
         // const users = this.socket.on('filter', data => this.setState(data));
         // const users = this.socket.on('filter', data => this.searchUsers({users: data, allUsers: data}));
 
     // const users = this.socket.on('filter', data => this.searchUsers(data));
-    this.setState({ users: users, allUsers: users })
+    // this.setState({ users: users, allUsers: users })
     
 
     // 12.06.2018
@@ -67,7 +67,9 @@ class App extends Component {
   fetchUsers() {
     axios.get(`${this.server}/api/users/`)
     .then((response) => {
-      this.setState({ users: response.data });
+      // this.setState({ users: response.data });
+      this.setState({ users: response.data, allUsers: response.data });
+
     })
     .catch((err) => {
       console.log(err);
@@ -119,10 +121,10 @@ class App extends Component {
  
  // 12.06.2018
  searchUsers(query){
-  // let users = this.state.users.slice();
-  //      users.filter(user => { 
-// data
-    let users = this.state.allUsers.filter((user) => {
+  let users = this.state.users.slice();
+      users = users.filter(user => { 
+
+    // let users = this.state.allUsers.filter((user) => {
 
          return user.truck_num.includes(query) || user.is_oos.includes(query) || user.repair_type.includes(query) || user.open_assign.includes(query) || user.truck_type.includes(query) || user.driver_code.includes(query) || user.permit_type.includes(query) || user.omni_serial.includes(query) || user.drivecam_serial.includes(query)
         });
