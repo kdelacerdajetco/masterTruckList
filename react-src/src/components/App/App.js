@@ -123,13 +123,14 @@ class App extends Component {
  
  // 12.06.2018
  searchUsers(query){
-  let users = this.state.allUsers.filter((user) => {
+  // let users = this.state.allUsers.filter((user) => {
 
 
-  // let users = this.state.users.slice();
+  let users = this.state.users.slice();
       // users = users.filter(user => { 
       // users = users.allUsers.filter(user => { 
       // users = allUsers.filter(user => { 
+      users = this.state.allUsers.filter((user) => {
 
 
   // for (let i = 0, n = users.length; i < n; i++) {
