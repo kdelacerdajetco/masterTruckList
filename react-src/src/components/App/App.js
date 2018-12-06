@@ -69,6 +69,8 @@ class App extends Component {
     .then((response) => {
       // this.setState({ users: response.data });
       this.setState({ users: response.data, allUsers: response.data });
+      // this.setState({ users: response.data, allUsers: users });
+
 
     })
     .catch((err) => {
