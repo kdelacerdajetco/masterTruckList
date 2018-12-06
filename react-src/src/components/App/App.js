@@ -125,9 +125,9 @@ class App extends Component {
  searchUsers(query){
   // let users = this.state.allUsers.filter((user) => {
 //try the below next!!!
-    // let users = this.state.allUsers.slice();
+    let users = this.state.allUsers.slice();
 
-  let users = this.state.users.allUsers.slice();
+  // let users = this.state.users.allUsers.slice();
       // users = users.filter(user => { 
       // users = users.allUsers.filter(user => { 
       // users = allUsers.filter(user => { 
