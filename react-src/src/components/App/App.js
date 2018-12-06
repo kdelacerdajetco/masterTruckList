@@ -46,6 +46,10 @@ class App extends Component {
     this.socket.on('update', data => this.handleUserUpdated(data));
     this.socket.on('delete', data => this.handleUserDeleted(data));
 
+    // might break below
+    const users = JSON.parse(localStorage.getItem('users')) || []
+    this.setState({ users: users, allUsers: users})
+
     // 12.06.2018
     // this.socket.on('filter', data => this.searchUsers(data));
   }
