@@ -26,7 +26,8 @@ class App extends Component {
 
     this.state = {
       users: [],
-      online: 0
+      online: 0,
+      allUsers: []
     }
 
     this.fetchUsers = this.fetchUsers.bind(this);
@@ -108,7 +109,7 @@ class App extends Component {
   // let users = this.state.users.slice();
   //      users.filter(user => { 
 // data
-    let users = this.state.users.filter((user) => {
+    let users = this.state.allUsers.filter((user) => {
 
          return user.truck_num.includes(query) || user.is_oos.includes(query) || user.repair_type.includes(query) || user.open_assign.includes(query) || user.truck_type.includes(query) || user.driver_code.includes(query) || user.permit_type.includes(query) || user.omni_serial.includes(query) || user.drivecam_serial.includes(query)
         });
