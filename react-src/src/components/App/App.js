@@ -124,9 +124,10 @@ class App extends Component {
  // 12.06.2018
  searchUsers(query){
   // let users = this.state.allUsers.filter((user) => {
+//try the below next!!!
+    // let users = this.state.allUsers.slice();
 
-
-  let users = this.state.users.slice();
+  let users = this.state.users.allUsers.slice();
       // users = users.filter(user => { 
       // users = users.allUsers.filter(user => { 
       // users = allUsers.filter(user => { 
@@ -151,6 +152,7 @@ class App extends Component {
          return user.truck_num.includes(query) || user.is_oos.includes(query) || user.repair_type.includes(query) || user.open_assign.includes(query) || user.truck_type.includes(query) || user.driver_code.includes(query) || user.permit_type.includes(query) || user.omni_serial.includes(query) || user.drivecam_serial.includes(query)
         });
         this.setState({ users: users  });
+        // this.setState({ allideas: allideas });
  }
 
 
