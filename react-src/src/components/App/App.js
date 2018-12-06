@@ -50,8 +50,8 @@ class App extends Component {
     // const users = this.state.users.slice();
 
     // const users = this.socket.on('filter', data => this.handleSearch({users: data, allUsers: data}));
-    // const users = this.socket.on('filter', data => this.handleSearch(data));
-        const users = this.socket.on('filter', data => this.setState({ users: data, allUsers: data}));
+    const users = this.socket.on('filter', data => this.handleSearch(data));
+        // const users = this.socket.on('filter', data => this.setState({ users: data, allUsers: data}));
         // const users = this.socket.on('filter', data => this.setState(data));
         // const users = this.socket.on('filter', data => this.searchUsers({users: data, allUsers: data}));
 
