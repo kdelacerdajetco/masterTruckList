@@ -79,10 +79,6 @@ class App extends Component {
         users[i].permit_type = user.permit_type;
         users[i].omni_serial = user.omni_serial;
         users[i].drivecam_serial = user.drivecam_serial;
-
-        // users[i].email = user.email;
-        // users[i].age = user.age;
-        // users[i].gender = user.gender;
         break; // Stop this loop, we found it!
       }
     }
@@ -111,7 +107,9 @@ class App extends Component {
  searchUsers(query){
   let users = this.state.users.slice();
        users.filter(user => { 
-         return user.data.includes(query)
+        //  return user.data.includes(query)
+         return user.truck_num.includes(query)
+         
         });
         this.setState({ 
           users: users 
