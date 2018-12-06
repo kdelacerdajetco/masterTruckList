@@ -54,3 +54,15 @@ let users = this.state.fetchUsers.filter((user) =>
         return user.TableUser.Body.includes(query)
 });
 this.setSTate({users:users})
+
+
+
+handleUserDeleted(user) {
+        let users = this.state.users.slice();
+       users.filter(user => { 
+         return user.data.includes(query)
+        });
+        this.setState({ 
+          users: users 
+        });
+      }

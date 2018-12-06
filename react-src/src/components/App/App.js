@@ -44,6 +44,9 @@ class App extends Component {
     this.socket.on('add', data => this.handleUserAdded(data));
     this.socket.on('update', data => this.handleUserUpdated(data));
     this.socket.on('delete', data => this.handleUserDeleted(data));
+
+    // 12.06.2018
+    this.socket.on('filter', data => this.searchUsers(data));
   }
 
   // Fetch data from the back-end
@@ -89,58 +92,67 @@ class App extends Component {
   handleUserDeleted(user) {
     let users = this.state.users.slice();
     users = users.filter(u => { return u._id !== user._id; });
-    this.setState({ users: users });
+    this.setState({ 
+      users: users 
+    });
   }
+
+  // 12.06.2018
+  // handleFilterUsers(user) {
+  //   let users = this.state.users.slice();
+
+  // }
 
   // work on this! only two lines of code left to figure out before filtering is functional 11.28.2018
   // added TableUser.js import at the top of this page in hopes that Table.HeaderCell or Table.Body will work. 
  // 11.28.18 -- Last update to the below -- Console is still reading the includes line as undefined. Maybe do the trick right above where the user id is noted; u.id
  
-
+ // 12.06.2018
  searchUsers(query){
-    console.log("Our App knows the query: " + query);
+  let users = this.state.users.slice();
+       users.filter(user => { 
+         return user.data.includes(query)
+        });
+        this.setState({ 
+          users: users 
+        });
+    
+    // ==================
+// let users = this.state.users.filter((user) =>
+//     return user.data.includes(query)
+//     console.log(users);
+//     console.log(data);
+//     this.setState({users: users});
+// ==================
+
+    // console.log("Our App knows the query: " + query);
+    // users is not a function 
+    // users(query);
     // let users = this.state.users.slice();
     // users = this.state.users.slice();
     // users = users.filter((users)  =>
     // let users = this.state.users.filter((query) =>
-
     // let tbody = this.state.TableUser;
     // let users = this.state.users.filter((user) =>
     // var users = users.filter((u => { return u._id !== user._id})
-
-    let users = this.state.users.filter((users) =>
-
-
     // let users = users.filter((u => { return u._id !== user._id}) 
-
     // let user = this.state.user.filter((users) =>
-
     // let user = this.state.user.filter((users) =>
-
-    {
       // return TableUser.Table.HeaderCell.includes(query) || TableUser.Table.Body.includes(query)
       // return TableUser.HeaderCell.includes(query) || TableUser.Body.includes(query)
       // return Table.HeaderCell.includes(query) || Table.Body.includes(query)
       // return Table.HeaderCell.includes(query) || Table.Body.includes(query)
       // return Table.HeaderCell.includes(query) || Table.Body.includes(query)
       // closer... (right below)
-      // return users.TableUser.Table.Body.includes(query)
-
-
+      // return users.TableUser.Table.Body.includes(query
       // return user.includes(query)
-
       //the bottom is the closet to the solution. however, 'users' is not correct.
       // return users.body.includes(query)
-      return users.body.includes(query)
-
       //most likely not the one below 
       // return users.user.includes(query)
-
-
-    });
     // console.log(users);
-    console.log(users);
-    this.setState({users: users});
+    // console.log(user);
+    // console.log(handleUserUpdated);
   }
 
   render() {
