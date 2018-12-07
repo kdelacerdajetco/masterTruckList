@@ -17,11 +17,13 @@ class SearchUser extends Component {
  //=============
 
 
-  handleSearch(e) {
+  handleSearch(event) {
     // console.log("The search is being handled...")
     // console.log(event.target.value)
 
-    let params = e.target.value
+    let params = event.target.value
+    // below works... but /api/users/whatever i type doesn't pull anything 
+    // let params = e.target.value 
     // let params = e.target.getArribute('data-userID');
     axios({
       method: 'filter',
