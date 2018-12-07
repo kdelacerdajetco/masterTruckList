@@ -15,13 +15,13 @@ class TableUser extends Component {
     
     users = users.map((user) => 
 
+    <SearchUser2
+      userID={user._id}
+      handleSearch={this.handleSearch.bind(this)}
+      server={this.props.server}
+      socket={this.props.socket}
+    />
       <Table.Row key={user._id}>
-        <SearchUser2
-          userID={user._id}
-          handleSearch={this.handleSearch.bind(this)}
-          server={this.props.server}
-          socket={this.props.socket}
-        />
         <Table.Cell>{user.truck_num}</Table.Cell>
         <Table.Cell>{user.is_oos}</Table.Cell>
         <Table.Cell>{user.repair_type}</Table.Cell>
