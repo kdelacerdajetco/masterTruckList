@@ -19,8 +19,12 @@ class TableUser extends Component {
   render() {
 
     let users = this.props.users;
-    
-    users = users.filter((user) => 
+    let filteredUsers = this.props.users.filter(
+      (user) => {
+          return user.truck_num.indexOf(this.state.search) !== -1;
+      }
+  );
+    users = users.map((user) => 
 
       <Table.Row key={user._id}>
         <Table.Cell>{user.truck_num}</Table.Cell>
@@ -86,7 +90,7 @@ class TableUser extends Component {
       <div className="input-field">
         <label>Search: </label>
         <ul>
-            {users.map((user)=> {
+            {filteredUsers.map((user)=> {
                 return <users user = {user} key={user.id}/>
             })}
         </ul>
