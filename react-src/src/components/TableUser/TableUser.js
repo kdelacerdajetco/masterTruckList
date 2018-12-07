@@ -14,6 +14,12 @@ class TableUser extends Component {
     let users = this.props.users;
     
     users = users.map((user) => 
+    <SearchUser2
+    userID={user._id}
+    handleSearch={this.handleSearch.bind(this)}
+    server={this.props.server}
+    socket={this.props.socket}
+  />
       <Table.Row key={user._id}>
         <Table.Cell>{user.truck_num}</Table.Cell>
         <Table.Cell>{user.is_oos}</Table.Cell>
@@ -25,12 +31,6 @@ class TableUser extends Component {
         <Table.Cell>{user.omni_serial}</Table.Cell>
         <Table.Cell>{user.drivecam_serial}</Table.Cell>
         <Table.Cell>
-        <SearchUser2
-          userID={user._id}
-          onChange={this.handleSearch.bind(this)}
-          server={this.props.server}
-          socket={this.props.socket}
-        />
           <ModalUser
             headerTitle='Edit User'
             buttonTriggerTitle='Edit'
