@@ -4,28 +4,16 @@ import { Table } from 'semantic-ui-react';
 import ModalUser from '../ModalUser/ModalUser';
 import ModalConfirmDelete from '../ModalConfirmDelete/ModalConfirmDelete';
 
+import SearchUser2 from '../FilterUser/SearchUser2.js';
+
+
 class TableUser extends Component {
-  
-  constructor () {
-    super();
-    this.state = {
-      search: ''
-    };
-  }
-    handleSearch(event) {
-      this.setState({search: event.target.value.substr(0,20)});
-    }
 
   render() {
 
     let users = this.props.users;
-    let filteredUsers = this.props.users.filter(
-      (user) => {
-          return user.truck_num.indexOf(this.state.search) !== -1;
-      }
-  );
+    
     users = users.map((user) => 
-
       <Table.Row key={user._id}>
         <Table.Cell>{user.truck_num}</Table.Cell>
         <Table.Cell>{user.is_oos}</Table.Cell>
@@ -37,6 +25,12 @@ class TableUser extends Component {
         <Table.Cell>{user.omni_serial}</Table.Cell>
         <Table.Cell>{user.drivecam_serial}</Table.Cell>
         <Table.Cell>
+        <SearchUser2
+          userID={user._id}
+          onKeyUp={this.handleSearch.bind(this)}
+          server={this.props.server}
+          socket={this.props.socket}
+        />
           <ModalUser
             headerTitle='Edit User'
             buttonTriggerTitle='Edit'
@@ -63,15 +57,12 @@ class TableUser extends Component {
     // Make every new user appear on top of the list
     // users =  [...users].reverse();
     users =  [...users];
-   
+
 
     return (
-      
 
       <Table singleLine>
-
-          
-          <Table.Header>
+        <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Truck Number</Table.HeaderCell>
             <Table.HeaderCell>IS/OOS</Table.HeaderCell>
@@ -86,17 +77,6 @@ class TableUser extends Component {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-        <div className="row">
-      <div className="input-field">
-        <label>Search: </label>
-        <ul>
-            {filteredUsers.map((user)=> {
-                return <users user = {user} key={user.id}/>
-            })}
-        </ul>
-        <input type="text" value={this.state.search} onKeyUp={this.handleSearch.bind(this)}/>
-      </div>
-    </div>    
           {users}
         </Table.Body>
       </Table>

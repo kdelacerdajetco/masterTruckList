@@ -27,7 +27,7 @@ constructor () {
               <label>Search: </label>
               <ul>
                   {filteredUsers.map((user)=> {
-                      return <User user = {user} key={user.id}/>
+                      return <user user = {user} key={user.id}/>
                   })}
               </ul>
               <input type="text" value={this.state.search} onKeyUp={this.handleSearch.bind(this)}/>
@@ -38,3 +38,5 @@ constructor () {
     }
     
     export default SearchUser2;
+
+ 
