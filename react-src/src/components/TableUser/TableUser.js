@@ -27,7 +27,7 @@ class TableUser extends Component {
         <Table.Cell>
         <SearchUser2
           userID={user._id}
-          onKeyUp={this.handleSearch.bind(this)}
+          onChange={this.handleSearch.bind(this)}
           server={this.props.server}
           socket={this.props.socket}
         />

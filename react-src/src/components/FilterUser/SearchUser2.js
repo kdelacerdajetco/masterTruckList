@@ -30,7 +30,7 @@ constructor () {
                       return <user user = {user} key={user.id}/>
                   })}
               </ul>
-              <input type="text" value={this.state.search} onKeyUp={this.handleSearch.bind(this)}/>
+              <input type="text" value={this.state.search} onChange={this.handleSearch.bind(this)}/>
             </div>
           </div>
         )
