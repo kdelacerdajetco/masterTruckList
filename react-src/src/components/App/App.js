@@ -34,6 +34,8 @@ class App extends Component {
     this.handleUserAdded = this.handleUserAdded.bind(this);
     this.handleUserUpdated = this.handleUserUpdated.bind(this);
     this.handleUserDeleted = this.handleUserDeleted.bind(this);
+
+    this.searchUsers = this.searchUsers.bind(this);
     // this.tbody = this.tbody.bind(this);
   }
 
@@ -45,11 +47,10 @@ class App extends Component {
     this.socket.on('add', data => this.handleUserAdded(data));
     this.socket.on('update', data => this.handleUserUpdated(data));
     this.socket.on('delete', data => this.handleUserDeleted(data));
-    this.socket.on('filter', data => this.searchUsers(data));
-    
+
+    // this.socket.on('filter', data => this.searchUsers(data));
     // this.socket.on('filter', data => this.searchUsers({allUsers: data}));
     // this.socket.on('filter', data => this.searchUser({allUsers: data}));
-
     // this.socket.on('filter', data => this.searchUser(data));
 
 
@@ -155,7 +156,7 @@ class App extends Component {
   //     break;
 
 
-
+        //return user.includes(query)
          return user.truck_num.includes(query) || user.is_oos.includes(query) || user.repair_type.includes(query) || user.open_assign.includes(query) || user.truck_type.includes(query) || user.driver_code.includes(query) || user.permit_type.includes(query) || user.omni_serial.includes(query) || user.drivecam_serial.includes(query)
         });
         this.setState({ users: users  });
@@ -203,10 +204,14 @@ class App extends Component {
           <em id='online'>{`${online} ${noun} ${verb} online.`}</em>
           <SearchUser 
             searchUsers={this.searchUsers.bind(this)}
+            // users={this.state.users}
+            server={this.server}
+            socket={this.socket}
           />
           <TableUser
             onUserUpdated={this.handleUserUpdated}
             onUserDeleted={this.handleUserDeleted}
+              // onUserFiltered={this.searchUsers}
             users={this.state.users}
             server={this.server}
             socket={this.socket}
