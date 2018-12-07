@@ -11,7 +11,7 @@ import logo from '../../siteLogo.png';
 import './App.css';
 
 // import FormUser from '../FormUser/FormUser.js';
-// import SearchUser2 from '../FilterUser/SearchUser2.js';
+import SearchUser from '../FilterUser/SearchUser.js';
 // import { Table } from 'semantic-ui-react';
 
 
@@ -35,7 +35,8 @@ class App extends Component {
     this.handleUserUpdated = this.handleUserUpdated.bind(this);
     this.handleUserDeleted = this.handleUserDeleted.bind(this);
 
-    // this.searchUsers = this.searchUsers.bind(this);
+    this.searchUsers = this.searchUsers.bind(this);
+    // this.tbody = this.tbody.bind(this);
   }
 
   // Place socket.io code inside here
@@ -46,14 +47,37 @@ class App extends Component {
     this.socket.on('add', data => this.handleUserAdded(data));
     this.socket.on('update', data => this.handleUserUpdated(data));
     this.socket.on('delete', data => this.handleUserDeleted(data));
+
+    // this.socket.on('filter', data => this.searchUsers(data));
+    // this.socket.on('filter', data => this.searchUsers({allUsers: data}));
+    // this.socket.on('filter', data => this.searchUser({allUsers: data}));
+    // this.socket.on('filter', data => this.searchUser(data));
+
+
+    // might break below 12.06.2018
+    // const users = this.state.users.slice();
+
+    // const users = this.socket.on('filter', data => this.handleSearch({users: data, allUsers: data}));
+    // const users = this.socket.on('filter', data => this.handleSearch(data));
+        // const users = this.socket.on('filter', data => this.setState({ users: data, allUsers: data}));
+        // const users = this.socket.on('filter', data => this.setState(data));
+        // const users = this.socket.on('filter', data => this.searchUsers({users: data, allUsers: data}));
+
+    // const users = this.socket.on('filter', data => this.searchUsers(data));
+    // this.setState({ users: users, allUsers: users })
+    
+
+    // 12.06.2018
+    // this.socket.on('filter', data => this.searchUsers(data));
   }
 
   // Fetch data from the back-end
   fetchUsers() {
     axios.get(`${this.server}/api/users/`)
     .then((response) => {
-      this.setState({ users: response.data });
-      // this.setState({ users: response.data, allUsers: response.data });
+      // this.setState({ users: response.data });
+      this.setState({ users: response.data, allUsers: response.data });
+      // this.setState({ users: response.data, allUsers: users });
 
 
     })
@@ -95,12 +119,49 @@ class App extends Component {
     });
   }
 
-//  searchUsers(query){
-//   let users = this.state.allUsers.filter((user) => {
-//          return user.truck_num.includes(query) || user.is_oos.includes(query) || user.repair_type.includes(query) || user.open_assign.includes(query) || user.truck_type.includes(query) || user.driver_code.includes(query) || user.permit_type.includes(query) || user.omni_serial.includes(query) || user.drivecam_serial.includes(query)
-//         });
-//         this.setState({ users: users  });
-//  }
+  // 12.06.2018
+  // handleFilterUsers(user) {
+  //   let users = this.state.users.slice();
+
+  // }
+
+  // work on this! only two lines of code left to figure out before filtering is functional 11.28.2018
+  // added TableUser.js import at the top of this page in hopes that Table.HeaderCell or Table.Body will work. 
+ // 11.28.18 -- Last update to the below -- Console is still reading the includes line as undefined. Maybe do the trick right above where the user id is noted; u.id
+ 
+ // 12.06.2018
+ searchUsers(query){
+  let users = this.state.allUsers.filter((user) => {
+//try the below next!!!
+    // let users = this.state.allUsers.slice();
+
+  // let users = this.state.users.allUsers.slice();
+      // users = users.filter(user => { 
+      // users = users.allUsers.filter(user => { 
+      // users = allUsers.filter(user => { 
+      // users = this.state.allUsers.filter((user) => {
+
+
+  // for (let i = 0, n = users.length; i < n; i++) {
+  //   if (users[i]._id === user._id) {
+  //     users[i].truck_num = user.truck_num;
+  //     users[i].is_oos = user.is_oos;
+  //     users[i].repair_type = user.repair_type;
+  //     users[i].open_assign = user.open_assign;
+  //     users[i].truck_type = user.truck_type;
+  //     users[i].driver_code = user.driver_code;
+  //     users[i].permit_type = user.permit_type;
+  //     users[i].omni_serial = user.omni_serial;
+  //     users[i].drivecam_serial = user.drivecam_serial;
+  //     break;
+
+
+        //return user.includes(query)
+         return user.truck_num.includes(query) || user.is_oos.includes(query) || user.repair_type.includes(query) || user.open_assign.includes(query) || user.truck_type.includes(query) || user.driver_code.includes(query) || user.permit_type.includes(query) || user.omni_serial.includes(query) || user.drivecam_serial.includes(query)
+        });
+        this.setState({ users: users  });
+        // this.setState({ allideas: allideas });
+ }
 
 
   render() {
@@ -141,7 +202,7 @@ class App extends Component {
             socket={this.socket}
           />
           <em id='online'>{`${online} ${noun} ${verb} online.`}</em>
-          {/* <SearchUser2 
+          {/* <SearchUser 
             searchUsers={this.searchUsers.bind(this)}
             // users={this.state.users}
             server={this.server}

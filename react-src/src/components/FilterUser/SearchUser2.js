@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import TableUser from '../TableUser/TableUser';
 // import axios from 'axios';
 
 
@@ -30,7 +31,7 @@ constructor () {
                       return <user user = {user} key={user.id}/>
                   })}
               </ul>
-              <input type="text" value={this.state.search} onChange={this.handleSearch.bind(this)}/>
+              <input type="text" value={this.state.search} onKeyUp={this.handleSearch.bind(this)}/>
             </div>
           </div>
         )
@@ -39,4 +40,9 @@ constructor () {
     
     export default SearchUser2;
 
- 
+//     <SearchUser2
+//     userID={user._id}
+//     handleSearch={this.handleSearch.bind(this)}
+//     server={this.props.server}
+//     socket={this.props.socket}
+//   />

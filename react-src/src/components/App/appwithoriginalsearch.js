@@ -202,12 +202,12 @@ class App extends Component {
             socket={this.socket}
           />
           <em id='online'>{`${online} ${noun} ${verb} online.`}</em>
-          <SearchUser 
+          {/* <SearchUser 
             searchUsers={this.searchUsers.bind(this)}
             // users={this.state.users}
             server={this.server}
             socket={this.socket}
-          />
+          /> */}
           <TableUser
             onUserUpdated={this.handleUserUpdated}
             onUserDeleted={this.handleUserDeleted}

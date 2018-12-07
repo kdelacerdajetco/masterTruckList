@@ -4,9 +4,6 @@ import { Table } from 'semantic-ui-react';
 import ModalUser from '../ModalUser/ModalUser';
 import ModalConfirmDelete from '../ModalConfirmDelete/ModalConfirmDelete';
 
-import SearchUser2 from '../FilterUser/SearchUser2.js';
-
-
 class TableUser extends Component {
 
   render() {
@@ -14,13 +11,6 @@ class TableUser extends Component {
     let users = this.props.users;
     
     users = users.map((user) => 
-
-    <SearchUser2
-      userID={user._id}
-      handleSearch={this.handleSearch.bind(this)}
-      server={this.props.server}
-      socket={this.props.socket}
-    />
       <Table.Row key={user._id}>
         <Table.Cell>{user.truck_num}</Table.Cell>
         <Table.Cell>{user.is_oos}</Table.Cell>
@@ -56,8 +46,8 @@ class TableUser extends Component {
     );
 
     // Make every new user appear on top of the list
-    // users =  [...users].reverse();
-    users =  [...users];
+    users =  [...users].reverse();
+    // users =  [...users];
 
 
     return (
