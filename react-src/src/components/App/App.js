@@ -45,6 +45,13 @@ class App extends Component {
     this.socket.on('add', data => this.handleUserAdded(data));
     this.socket.on('update', data => this.handleUserUpdated(data));
     this.socket.on('delete', data => this.handleUserDeleted(data));
+    this.socket.on('filter', data => this.searchUsers(data));
+    
+    // this.socket.on('filter', data => this.searchUsers({allUsers: data}));
+    // this.socket.on('filter', data => this.searchUser({allUsers: data}));
+
+    // this.socket.on('filter', data => this.searchUser(data));
+
 
     // might break below 12.06.2018
     // const users = this.state.users.slice();
@@ -123,7 +130,7 @@ class App extends Component {
  
  // 12.06.2018
  searchUsers(query){
-  let users = this.state.allUsers.fetchUsers((user) => {
+  let users = this.state.allUsers.filter((user) => {
 //try the below next!!!
     // let users = this.state.allUsers.slice();
 
