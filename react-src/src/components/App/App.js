@@ -11,8 +11,11 @@ import logo from '../../siteLogo.png';
 import './App.css';
 
 // import FormUser from '../FormUser/FormUser.js';
-// import SearchUser from '../FilterUser/SearchUser.js';
+import SearchUser from '../FilterUser/SearchUser.js';
 // import { Table } from 'semantic-ui-react';
+
+// import SearchUser2 from '../FilterUser/SearchUser2.js';
+
 
 
 
@@ -26,8 +29,8 @@ class App extends Component {
 
     this.state = {
       users: [],
-      online: 0,
-      search: ''
+      online: 0
+      // search: ''
     }
 
     this.fetchUsers = this.fetchUsers.bind(this);
@@ -35,7 +38,7 @@ class App extends Component {
     this.handleUserUpdated = this.handleUserUpdated.bind(this);
     this.handleUserDeleted = this.handleUserDeleted.bind(this);
 
-    this.handleSearch = this.handleSearch.bind(this);
+    // this.handleSearch = this.handleSearch.bind(this);
 
   }
 
@@ -66,14 +69,12 @@ class App extends Component {
     });
   }
   
-  handleSearch(event) {
-    // let users = this.state.users.slice();
-    this.setState({
-      search: event.target.value.substr(0,20)
-      // users: users
-    });
+  // handleSearch(event) {
+  //   this.setState({
+  //     search: event.target.value
+  //   });
 
-  }
+  // }
   handleUserAdded(user) {
     let users = this.state.users.slice();
     users.push(user);
@@ -107,18 +108,32 @@ class App extends Component {
     });
   }
 
+ searchUsers(query){
+  // let users = this.state.allUsers.filter((user) => {
+    let users = this.state.users.slice().filter((user) => {
+         return user.truck_num.includes(query) || user.is_oos.includes(query) || user.repair_type.includes(query) || user.open_assign.includes(query) || user.truck_type.includes(query) || user.driver_code.includes(query) || user.permit_type.includes(query) || user.omni_serial.includes(query) || user.drivecam_serial.includes(query)
+        });
+        this.setState({ users: users  });
+
+
+
+ }
+
+//  filteredUsers(query){
+//   let users = this.state.users.slice()
+//   let filteredUsers = this.props.users.filter((user) => {
+//     return user.truck_num.indexOf(this.state.search) !== -1;
+//     }
+//   );
+//  }
 
   render() {
 
     let online = this.state.online;
     let verb = (online <= 1) ? 'is' : 'are'; // linking verb, if you'd prefer
     let noun = (online <= 1) ? 'person' : 'people';
-    // let users = this.state.users.slice()
 
-    // let filteredUsers = this.props.users.filter((user) => {
-    //       return user.truck_num.indexOf(this.state.search) !== -1;
-    //     }
-    //   );
+
   
 
     return (
@@ -152,12 +167,20 @@ class App extends Component {
             socket={this.socket}
           />
           <em id='online'>{`${online} ${noun} ${verb} online.`}</em>
-          {/* <SearchUser 
+          {/* <SearchUser2 
             searchUsers={this.searchUsers.bind(this)}
             // users={this.state.users}
+            filteredUsers={this.state.filteredUsers}
             server={this.server}
             socket={this.socket}
           /> */}
+          <SearchUser 
+            searchUsers={this.searchUsers.bind(this)}
+            // users={this.state.users}
+            // filteredUsers={this.state.filteredUsers}
+            server={this.server}
+            socket={this.socket}
+          />
           <TableUser
             onUserUpdated={this.handleUserUpdated}
             onUserDeleted={this.handleUserDeleted}

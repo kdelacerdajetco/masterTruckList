@@ -64,7 +64,6 @@ class FormUser extends Component {
       formErrorMessage: ''
     }
 
-    // testing alterting handleInputChange since I am unable to type into any field
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleTrucknumChange = this.handleTrucknumChange.bind(this);
     this.handleRepairtypeChange = this.handleRepairtypeChange.bind(this);
@@ -73,8 +72,6 @@ class FormUser extends Component {
     this.handleDrivecamserialChange = this.handleDrivecamserialChange.bind(this);
 
 
-    // this.handleSelectChange = this.handleSelectChange.bind(this);
-    // testing multiple drop down select options. seeing if it takes and fixes the error of not being able to select drop-down for multiple things
     this.handleTrucktypeChange = this.handleTrucktypeChange.bind(this);
     this.handleIsoosChange = this.handleIsoosChange.bind(this);
     this.handlePermittypeChange = this.handlePermittypeChange.bind(this);

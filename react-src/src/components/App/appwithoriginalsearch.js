@@ -1,3 +1,5 @@
+// Working model. Search bar renders but is non-functional. 
+
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
 import axios from 'axios';

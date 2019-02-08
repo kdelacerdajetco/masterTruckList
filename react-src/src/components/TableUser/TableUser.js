@@ -10,7 +10,7 @@ class TableUser extends Component {
 
     let users = this.props.users;
     
-    users = users.map((user) => 
+    users = users.map((user) =>
       <Table.Row key={user._id}>
         <Table.Cell>{user.truck_num}</Table.Cell>
         <Table.Cell>{user.is_oos}</Table.Cell>
